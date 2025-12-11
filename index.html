@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Design | Creative Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card.hidden {
+            display: none;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text">DesignFolio</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Accueil</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projets</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">À propos</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600 py-2">Accueil</a>
+                <a href="#projects" class="block text-gray-700 hover:text-purple-600 py-2">Projets</a>
+                <a href="#about" class="block text-gray-700 hover:text-purple-600 py-2">À propos</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center py-16">
+                <h2 class="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
+                    Designer Créatif
+                    <span class="block gradient-text mt-2">Créateur d'Expériences Visuelles</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Spécialisé en design systems, UI kits, palettes de couleurs et templates web & social media. 
+                    Je transforme vos idées en expériences visuelles exceptionnelles.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-lg font-medium hover:shadow-lg transition">
+                        Voir mes projets
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg font-medium hover:bg-purple-50 transition">
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 bg-white px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Mes Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Design Systems</h4>
+                    <p class="text-gray-600">Systèmes de design cohérents et évolutifs pour vos produits</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Palettes de Couleurs</h4>
+                    <p class="text-gray-600">Harmonies chromatiques professionnelles et accessibles</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">UI Kits</h4>
+                    <p class="text-gray-600">Bibliothèques de composants UI prêts à l'emploi</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Templates Web</h4>
+                    <p class="text-gray-600">Templates modernes et responsives pour sites web</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Templates Social Media</h4>
+                    <p class="text-gray-600">Designs percutants pour vos réseaux sociaux</p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Consulting Design</h4>
+                    <p class="text-gray-600">Conseil et accompagnement sur vos projets design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-4">Mes Projets</h3>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Découvrez une sélection de mes créations en design graphique et digital
+            </p>
+            
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-purple-600 hover:text-white transition" data-filter="all">
+                    Tous
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-purple-600 hover:text-white transition" data-filter="design-system">
+                    Design Systems
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-purple-600 hover:text-white transition" data-filter="palette">
+                    Palettes
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-purple-600 hover:text-white transition" data-filter="ui-kit">
+                    UI Kits
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-purple-600 hover:text-white transition" data-filter="web">
+                    Templates Web
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium bg-gray-200 text-gray-700 hover:bg-purple-600 hover:text-white transition" data-filter="social">
+                    Social Media
+                </button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover" data-category="design-system">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-400"></div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-purple-600 uppercase tracking-wider">Design System</span>
+                        <h4 class="text-xl font-bold text-gray-900 mt-2 mb-2">Sistema Design Pro</h4>
+                        <p class="text-gray-600 mb-4">Design system complet avec composants réutilisables</p>
+                        <button class="text-purple-600 font-medium hover:underline">Voir le projet →</button>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover" data-category="palette">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-teal-400"></div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Palette</span>
+                        <h4 class="text-xl font-bold text-gray-900 mt-2 mb-2">Ocean Vibes</h4>
+                        <p class="text-gray-600 mb-4">Palette de couleurs inspirée par l'océan</p>
+                        <button class="text-purple-600 font-medium hover:underline">Voir le projet →</button>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover" data-category="ui-kit">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-400"></div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-green-600 uppercase tracking-wider">UI Kit</span>
+                        <h4 class="text-xl font-bold text-gray-900 mt-2 mb-2">Modern UI Kit</h4>
+                        <p class="text-gray-600 mb-4">100+ composants UI modernes et accessibles</p>
+                        <button class="text-purple-600 font-medium hover:underline">Voir le projet →</button>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover" data-category="web">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-400"></div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-orange-600 uppercase tracking-wider">Template Web</span>
+                        <h4 class="text-xl font-bold text-gray-900 mt-2 mb-2">E-commerce Template</h4>
+                        <p class="text-gray-600 mb-4">Template complet pour boutique en ligne</p>
+                        <button class="text-purple-600 font-medium hover:underline">Voir le projet →</button>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover" data-category="social">
+                    <div class="h-48 bg-gradient-to-br from-pink-400 to-purple-400"></div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-pink-600 uppercase tracking-wider">Social Media</span>
+                        <h4 class="text-xl font-bold text-gray-900 mt-2 mb-2">Instagram Pack</h4>
+                        <p class="text-gray-600 mb-4">30 templates Instagram Stories & Posts</p>
+                        <button class="text-purple-600 font-medium hover:underline">Voir le projet →</button>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover" data-category="design-system">
+                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-400"></div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Design System</span>
+                        <h4 class="text-xl font-bold text-gray-900 mt-2 mb-2">Corporate Design</h4>
+                        <p class="text-gray-600 mb-4">Design system pour environnement corporate</p>
+                        <button class="text-purple-600 font-medium hover:underline">Voir le projet →</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-bold text-gray-900 mb-6">À Propos</h3>
+            <p class="text-lg text-gray-600 mb-6">
+                Designer passionné avec plus de 5 ans d'expérience dans la création d'expériences visuelles exceptionnelles. 
+                Je me spécialise dans la conception de design systems, UI kits et templates qui allient esthétique et fonctionnalité.
+            </p>
+            <p class="text-lg text-gray-600 mb-8">
+                Mon approche combine créativité, rigueur technique et compréhension profonde des besoins utilisateurs 
+                pour créer des solutions design qui font la différence.
+            </p>
+            <div class="flex justify-center gap-4">
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text">150+</div>
+                    <div class="text-gray-600 mt-2">Projets Réalisés</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text">50+</div>
+                    <div class="text-gray-600 mt-2">Clients Satisfaits</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text">5+</div>
+                    <div class="text-gray-600 mt-2">Années d'Expérience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-4">Me Contacter</h3>
+            <p class="text-center text-gray-600 mb-12">
+                Un projet en tête ? Discutons-en ensemble
+            </p>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Nom</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Votre nom">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="votre@email.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Sujet</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Sujet de votre message">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Votre message..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-lg font-medium hover:shadow-lg transition">
+                        Envoyer le message
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <div class="flex justify-center gap-6">
+                        <a href="#" class="text-gray-600 hover:text-purple-600 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-purple-600 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 
+                                <a href="#" class="text-gray-600 hover:text-purple-600 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.163-2.759 6.163-6.163-2.76-6.162-6.163-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-purple-600 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-purple-600 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-purple-600 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-2xl font-bold gradient-text mb-4">DesignFolio</h2>
+            <p class="text-gray-400 mb-4">Créateur d'Expériences Visuelles Exceptionnelles</p>
+            <p class="text-gray-500 text-sm">© 2024 DesignFolio. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

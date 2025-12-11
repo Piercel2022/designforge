@@ -1,0 +1,18 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Dépendances (si vous utilisez npm)
+node_modules/
+
+# Fichiers de build
+dist/
+.cache/
+
+# Environnement
+.env
+.env.local
