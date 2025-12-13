@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Wellness - Étude de Cas | Piercel Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #C084FC 0%, #F472B6 100%);
+        }
+        
+        .hero-pattern {
+            background: linear-gradient(135deg, #C084FC 0%, #F472B6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #C084FC, #F472B6);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(192, 132, 252, 0.2);
+        }
+
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .mockup-item {
+            transition: all 0.5s ease;
+        }
+
+        .mockup-item:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+
+        .logo-showcase {
+            transition: all 0.4s ease;
+        }
+
+        .logo-showcase:hover {
+            transform: scale(1.05);
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 40px;
+            bottom: -40px;
+            width: 2px;
+            background: linear-gradient(to bottom, #C084FC, #F472B6);
+        }
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        .process-dot {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #C084FC, #F472B6);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #C084FC;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(192, 132, 252, 0.2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #C084FC;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">Piercel Design</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#defi" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Le Défi</a>
+                    <a href="#solution" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Solution</a>
+                    <a href="#resultats" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Résultats</a>
+                    <a href="#applications" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Applications</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-32 pb-20 px-4 relative">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <span class="inline-block px-6 py-2 bg-white/20 text-white rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+                ÉTUDE DE CAS COMPLÈTE
+            </span>
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6">
+                Lumina Wellness
+            </h1>
+            <p class="text-2xl md:text-3xl text-white/90 mb-4 max-w-3xl mx-auto">
+                Centre de Bien-Être Holistique
+            </p>
+            <p class="text-lg text-white/80 max-w-2xl mx-auto">
+                Transformation d'une startup en marque de référence dans le secteur du bien-être
+            </p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="defi" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal-on-scroll">
+                    <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+                        LE CONTEXTE
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Le Défi</h2>
+                    <p class="text-xl text-gray-600 mb-6 leading-relaxed">
+                        Lumina Wellness, une nouvelle venue dans l'industrie du bien-être, avait besoin d'une identité visuelle qui transmette instantanément la sérénité, la guérison et l'authenticité.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Le défi majeur était de se démarquer dans un marché saturé où la plupart des concurrents utilisent des codes visuels similaires (vert menthe, bambou, pierres zen), tout en restant accessible et accueillant pour une clientèle diversifiée.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900 text-lg mb-1">Objectif Principal</p>
+                                <p class="text-gray-600">Créer une marque apaisante qui inspire confiance, professionnalisme et authenticité dès le premier contact</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900 text-lg mb-1">Public Cible</p>
+                                <p class="text-gray-600">Femmes actives 30-55 ans cherchant équilibre, réduction du stress et bien-être holistique</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900 text-lg mb-1">Contraintes</p>
+                                <p class="text-gray-600">Budget limité, délai serré de 6 semaines, et besoin d'une identité évolutive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-on-scroll">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="stat-card bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl">
+                            <div class="text-5xl font-bold gradient-bg bg-clip-text text-transparent mb-2">+250%</div>
+                            <p class="text-gray-600 font-medium">Reconnaissance de marque</p>
+                            <p class="text-sm text-gray-500 mt-2">En 6 mois après lancement</p>
+                        </div>
+                        <div class="stat-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl">
+                            <div class="text-5xl font-bold text-blue-600 mb-2">4.9/5</div>
+                            <p class="text-gray-600 font-medium">Satisfaction client</p>
+                            <p class="text-sm text-gray-500 mt-2">Note moyenne Google</p>
+                        </div>
+                        <div class="stat-card bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl">
+                            <div class="text-5xl font-bold text-green-600 mb-2">+180%</div>
+                            <p class="text-gray-600 font-medium">Engagement social</p>
+                            <p class="text-sm text-gray-500 mt-2">Instagram & Facebook</p>
+                        </div>
+                        <div class="stat-card bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl">
+                            <div class="text-5xl font-bold text-orange-600 mb-2">320+</div>
+                            <p class="text-gray-600 font-medium">Nouveaux clients</p>
+                            <p class="text-sm text-gray-500 mt-2">Premier trimestre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="inline-block px-4 py-2 bg-white text-purple-700 rounded-full text-sm font-semibold mb-4">
+                    NOTRE APPROCHE
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Le Processus Créatif</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Une méthodologie éprouvée en 5 étapes pour créer une identité de marque authentique
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="process-step reveal-on-scroll">
+                    <div class="process-dot"></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">1. Recherche & Découverte</h3>
+                        <p class="text-gray-600 mb-4">
+                            Immersion totale dans l'univers du bien-être holistique. Nous avons analysé 50+ concurrents, interviewé 20 clients potentiels, et exploré les tendances du marché.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Analyse concurrentielle</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Interviews clients</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Étude de marché</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step reveal-on-scroll">
+                    <div class="process-dot"></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">2. Stratégie de Marque</h3>
+                        <p class="text-gray-600 mb-4">
+                            Définition du positionnement unique : "La transformation par la douceur". Nous avons créé une personnalité de marque chaleureuse, accessible et inspirante.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Positionnement</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Personnalité</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Valeurs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step reveal-on-scroll">
+                    <div class="process-dot"></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">3. Exploration Créative</h3>
+                        <p class="text-gray-600 mb-4">
+                            30+ concepts de logos explorés. Le lotus s'est imposé comme symbole parfait : beauté émergente, transformation, pureté. Sketches, iterations, refinements.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">30+ concepts</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Symbolisme</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Refinements</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step reveal-on-scroll">
+                    <div class="process-dot"></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">4. Développement Visuel</h3>
+                        <p class="text-gray-600 mb-4">
+                            Création d'un système complet : logo, palette, typographie, iconographie. Tests avec le public cible pour valider l'impact émotionnel.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Identité visuelle</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Tests utilisateurs</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Système design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step reveal-on-scroll">
+                    <div class="process-dot"></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">5. Déploiement & Support</h3>
+                        <p class="text-gray-600 mb-4">
+                            Livraison d'un brand book complet, templates pour tous supports, et accompagnement sur 3 mois pour assurer une application cohérente.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Brand book</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Templates</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Support continu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Logo Showcase -->
+    <section id="solution" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+                    LA SOLUTION
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Création du Logo</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Un symbole puissant qui raconte une histoire de transformation
+                </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-12 mb-12 reveal-on-scroll">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <!-- Logo Principal -->
+                    <div class="logo-showcase bg-white rounded-2xl p-8 shadow-xl">
+                        <div class="aspect-square flex items-center justify-center mb-6">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="12" fill="#C084FC"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#E9D5FF" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#E9D5FF" transform="rotate(72)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#E9D5FF" transform="rotate(144)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#E9D5FF" transform="rotate(216)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#E9D5FF" transform="rotate(288)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(36)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(108)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(180)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(252)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(324)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="text-center font-bold text-gray-900 text-lg mb-1">Logo Principal</p>
+                        <p class="text-center text-sm text-gray-600">Version couleur complète</p>
+                    </div>
+
+                    <!-- Logo Monochrome -->
+                    <div class="logo-showcase bg-gray-900 rounded-2xl p-8 shadow-xl">
+                        <div class="aspect-square flex items-center justify-center mb-6">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="12" fill="#FFFFFF"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#FFFFFF" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#FFFFFF" transform="rotate(72)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#FFFFFF" transform="rotate(144)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#FFFFFF" transform="rotate(216)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#FFFFFF" transform="rotate(288)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="text-center font-bold text-white text-lg mb-1">Logo Monochrome</p>
+                        <p class="text-center text-sm text-gray-400">Version sur fond sombre</p>
+                    </div>
+
+                    <!-- Logo Icon -->
+                    <div class="logo-showcase bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 shadow-xl">
+                        <div class="aspect-square flex items-center justify-center mb-6">
+                            <svg viewBox="0 0 200 200" class="w-3/4 h-3/4">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="12" fill="#7C3AED"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#A78BFA" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#A78BFA" transform="rotate(72)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#A78BFA" transform="rotate(144)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#A78BFA" transform="rotate(216)"/>
+                                    <ellipse cx="0" cy="-25" rx="15" ry="30" fill="#A78BFA" transform="rotate(288)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="text-center font-bold text-gray-900 text-lg mb-1">Icône Seule</p>
+                        <p class="text-center text-sm text-gray-600">Pour réseaux sociaux</p>
+                    </div>
+                </div>
+
+                <div class="text-center max-w-3xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Le Symbolisme du Lotus</h3>
+                    <p class="text-lg text-gray-700 mb-3 leading-relaxed">
+                        Le lotus s'épanouit dans l'eau boueuse pour fleurir magnifiquement à la surface, symbolisant le parcours de transformation personnelle que chaque client entreprend.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Cette fleur sacrée représente la pureté, la renaissance spirituelle et l'éveil - des valeurs au cœur de la mission de Lumina Wellness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Color Palette -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Palette de Couleurs</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Des teintes apaisantes qui évoquent calme, guérison et énergie positive
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto reveal-on-scroll">
+                <div class="color-swatch" style="background: linear-gradient(135deg, #C084FC, #A855F7);">
+                    <span class="text-sm font-bold">#C084FC</span>
+                    <span class="text-xs font-light mt-1">Violet Lotus</span>
+                </div>
+                <div class="color-swatch" style="background: linear-gradient(135deg, #F9A8D4, #F472B6);">
+                    <span class="text-sm font-bold">#F9A8D4</span>
+                    <span class="text-xs font-light mt-1">Rose Zen</span>
+                </div>
+               <div class="color-swatch" style="background: linear-gradient(135deg, #E9D5FF, #DDD6FE);">
+                    <span class="text-sm font-bold">#E9D5FF</span>
+                    <span class="text-xs font-light mt-1">Lavande Douce</span>
+                </div>
+                <div class="color-swatch" style="background: linear-gradient(135deg, #7C3AED, #6D28D9);">
+                    <span class="text-sm font-bold">#7C3AED</span>
+                    <span class="text-xs font-light mt-1">Pourpre Profond</span>
+                </div>
+                <div class="color-swatch" style="background: linear-gradient(135deg, #1F2937, #111827);">
+                    <span class="text-sm font-bold">#1F2937</span>
+                    <span class="text-xs font-light mt-1">Charbon Élégant</span>
+                </div>
+            </div>
+
+            <div class="mt-16 max-w-4xl mx-auto reveal-on-scroll">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Psychologie des Couleurs</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                <div class="w-6 h-6 rounded-full bg-purple-400"></div>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900 mb-2">Violet & Lavande</p>
+                                <p class="text-gray-600 text-sm">Spiritualité, sagesse, transformation intérieure et connexion au divin</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                <div class="w-6 h-6 rounded-full bg-pink-400"></div>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900 mb-2">Rose Zen</p>
+                                <p class="text-gray-600 text-sm">Compassion, amour universel, douceur et guérison émotionnelle</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Typography -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Typographie</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Des polices élégantes qui allient modernité et sérénité
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal-on-scroll">
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-10 shadow-lg">
+                    <p class="text-sm text-purple-600 font-semibold mb-4">POLICE PRINCIPALE</p>
+                    <h3 class="text-6xl font-bold text-gray-900 mb-6" style="font-family: 'Inter', sans-serif;">Inter</h3>
+                    <p class="text-gray-600 mb-6">Utilisée pour les titres, logos et éléments de marque principaux</p>
+                    <div class="space-y-2">
+                        <p class="text-4xl font-bold text-gray-900">Lumina</p>
+                        <p class="text-2xl font-semibold text-gray-800">Votre Bien-Être</p>
+                        <p class="text-xl font-medium text-gray-700">Notre Passion</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-10 shadow-lg">
+                    <p class="text-sm text-gray-600 font-semibold mb-4">POLICE SECONDAIRE</p>
+                    <h3 class="text-5xl font-light text-gray-900 mb-6" style="font-family: 'Inter', sans-serif;">Inter Light</h3>
+                    <p class="text-gray-600 mb-6">Pour le corps de texte, descriptions et contenus longs</p>
+                    <div class="space-y-3">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Notre approche holistique combine des techniques ancestrales et modernes pour un bien-être complet.
+                        </p>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            Découvrez une expérience de transformation personnelle dans un environnement apaisant et accueillant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Applications -->
+    <section id="applications" class="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="inline-block px-4 py-2 bg-white text-purple-700 rounded-full text-sm font-semibold mb-4">
+                    MISE EN ŒUVRE
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Applications de la Marque</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Une identité cohérente à travers tous les points de contact
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-on-scroll">
+                <!-- Business Cards -->
+                <div class="mockup-item bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="aspect-[3/2] bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+                        <div class="text-white text-center">
+                            <svg viewBox="0 0 200 200" class="w-16 h-16 mx-auto mb-3">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="8" fill="#FFFFFF"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(72)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(144)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(216)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(288)"/>
+                                </g>
+                            </svg>
+                            <p class="text-xl font-bold">LUMINA</p>
+                            <p class="text-sm font-light">Wellness</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Cartes de Visite</h3>
+                    <p class="text-gray-600 text-sm">Design premium avec finition soft-touch et dorure à chaud</p>
+                </div>
+
+                <!-- Signage -->
+                <div class="mockup-item bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="aspect-[3/2] bg-gray-100 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-center">
+                            <svg viewBox="0 0 200 200" class="w-20 h-20 mx-auto mb-2">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="10" fill="#C084FC"/>
+                                    <ellipse cx="0" cy="-22" rx="14" ry="26" fill="#E9D5FF" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-22" rx="14" ry="26" fill="#E9D5FF" transform="rotate(72)"/>
+                                    <ellipse cx="0" cy="-22" rx="14" ry="26" fill="#E9D5FF" transform="rotate(144)"/>
+                                    <ellipse cx="0" cy="-22" rx="14" ry="26" fill="#E9D5FF" transform="rotate(216)"/>
+                                    <ellipse cx="0" cy="-22" rx="14" ry="26" fill="#E9D5FF" transform="rotate(288)"/>
+                                </g>
+                            </svg>
+                            <p class="text-2xl font-bold text-gray-900">LUMINA</p>
+                            <p class="text-sm text-gray-600">Wellness Center</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Enseigne Extérieure</h3>
+                    <p class="text-gray-600 text-sm">Signalétique élégante avec éclairage LED intégré</p>
+                </div>
+
+                <!-- Social Media -->
+                <div class="mockup-item bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="aspect-[3/2] bg-gradient-to-br from-pink-300 to-purple-300 rounded-xl mb-4 p-6 flex flex-col justify-between">
+                        <div class="flex items-center justify-between">
+                            <svg viewBox="0 0 200 200" class="w-10 h-10">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="8" fill="#FFFFFF"/>
+                                    <ellipse cx="0" cy="-15" rx="10" ry="18" fill="#FFFFFF" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-15" rx="10" ry="18" fill="#FFFFFF" transform="rotate(120)"/>
+                                    <ellipse cx="0" cy="-15" rx="10" ry="18" fill="#FFFFFF" transform="rotate(240)"/>
+                                </g>
+                            </svg>
+                            <div class="text-white text-xs font-semibold">@luminawellness</div>
+                        </div>
+                        <div class="text-white">
+                            <p class="text-sm font-semibold">Moment de Sérénité</p>
+                            <p class="text-xs opacity-90">Trouvez votre équilibre intérieur</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Réseaux Sociaux</h3>
+                    <p class="text-gray-600 text-sm">Templates Instagram, Facebook et LinkedIn</p>
+                </div>
+
+                <!-- Website -->
+                <div class="mockup-item bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="aspect-[3/2] bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-4 p-4">
+                        <div class="bg-white rounded-lg p-3 h-full flex flex-col">
+                            <div class="flex items-center justify-between mb-2">
+                                <svg viewBox="0 0 200 200" class="w-6 h-6">
+                                    <g transform="translate(100, 100)">
+                                        <circle cx="0" cy="0" r="6" fill="#C084FC"/>
+                                        <ellipse cx="0" cy="-12" rx="8" ry="14" fill="#E9D5FF" transform="rotate(0)"/>
+                                        <ellipse cx="0" cy="-12" rx="8" ry="14" fill="#E9D5FF" transform="rotate(120)"/>
+                                        <ellipse cx="0" cy="-12" rx="8" ry="14" fill="#E9D5FF" transform="rotate(240)"/>
+                                    </g>
+                                </svg>
+                                <div class="flex gap-1">
+                                    <div class="w-8 h-1 bg-gray-200 rounded"></div>
+                                    <div class="w-8 h-1 bg-gray-200 rounded"></div>
+                                    <div class="w-8 h-1 bg-gray-200 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-1 flex-1">
+                                <div class="h-2 bg-gradient-to-r from-purple-200 to-pink-200 rounded w-3/4"></div>
+                                <div class="h-2 bg-gray-100 rounded w-full"></div>
+                                <div class="h-2 bg-gray-100 rounded w-5/6"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Site Web</h3>
+                    <p class="text-gray-600 text-sm">Interface moderne, responsive et accessible</p>
+                </div>
+
+                <!-- Packaging -->
+                <div class="mockup-item bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="aspect-[3/2] bg-gray-50 rounded-xl mb-4 flex items-center justify-center p-6">
+                        <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4 w-full">
+                            <svg viewBox="0 0 200 200" class="w-12 h-12 mx-auto">
+                                <g transform="translate(100, 100)">
+                                    <circle cx="0" cy="0" r="8" fill="#7C3AED"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(0)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(120)"/>
+                                    <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#C084FC" transform="rotate(240)"/>
+                                </g>
+                            </svg>
+                            <p class="text-center text-xs font-semibold text-gray-700 mt-2">LUMINA</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Packaging Produits</h3>
+                    <p class="text-gray-600 text-sm">Emballages écologiques pour huiles et cosmétiques</p>
+                </div>
+
+                <!-- Merchandise -->
+                <div class="mockup-item bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="aspect-[3/2] bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl mb-4 flex items-center justify-center">
+                        <svg viewBox="0 0 200 200" class="w-16 h-16">
+                            <g transform="translate(100, 100)">
+                                <circle cx="0" cy="0" r="8" fill="#FFFFFF"/>
+                                <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(0)"/>
+                                <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(72)"/>
+                                <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(144)"/>
+                                <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(216)"/>
+                                <ellipse cx="0" cy="-18" rx="12" ry="22" fill="#FFFFFF" transform="rotate(288)"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Merchandising</h3>
+                    <p class="text-gray-600 text-sm">Tote bags, tapis de yoga, bouteilles réutilisables</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+            <div class="reveal-on-scroll">
+                <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Ce Qu'ils Disent</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="testimonial-card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-bold text-xl mr-4">
+                                S
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Sophie Martin</p>
+                                <p class="text-sm text-gray-600">Fondatrice, Lumina Wellness</p>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 mb-3">★★★★★</div>
+                        <p class="text-gray-700 italic leading-relaxed">
+                            "Piercel Design a capturé l'essence même de notre vision. Le logo et l'identité visuelle transmettent exactement ce que nous voulions : sérénité, professionnalisme et authenticité. Nos clients nous disent constamment que notre marque les apaise dès qu'ils la voient."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-indigo-400 flex items-center justify-center text-white font-bold text-xl mr-4">
+                                M
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Marie Dubois</p>
+                                <p class="text-sm text-gray-600">Cliente Régulière</p>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 mb-3">★★★★★</div>
+                        <p class="text-gray-700 italic leading-relaxed">
+                            "L'identité visuelle de Lumina est ce qui m'a d'abord attirée. Les couleurs douces et le logo élégant m'ont immédiatement donné confiance. C'est rare de voir une marque où chaque détail respire le bien-être et le professionnalisme."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Results -->
+    <section id="resultats" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+                    L'IMPACT
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Résultats Mesurables</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Une transformation qui dépasse toutes les attentes
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="reveal-on-scroll">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Performance de la Marque</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-900">Reconnaissance de Marque</span>
+                                <span class="font-bold text-purple-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-900">Engagement Social</span>
+                                <span class="font-bold text-purple-600">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-3 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-900">Satisfaction Client</span>
+                                <span class="font-bold text-purple-600">96%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-3 rounded-full" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-900">Taux de Rétention</span>
+                                <span class="font-bold text-purple-600">78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-3 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-on-scroll">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-10 text-white shadow-2xl floating">
+                        <h3 class="text-2xl font-bold mb-8">Succès Chiffrés</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                                <div class="text-4xl font-bold mb-2">+320</div>
+                                <p class="text-sm opacity-90">Nouveaux clients<br/>en 3 mois</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                                <div class="text-4xl font-bold mb-2">4.9★</div>
+                                <p class="text-sm opacity-90">Note moyenne<br/>Google Reviews</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                                <div class="text-4xl font-bold mb-2">+180%</div>
+                                <p class="text-sm opacity-90">Croissance<br/>réseaux sociaux</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                                <div class="text-4xl font-bold mb-2">+250%</div>
+                                <p class="text-sm opacity-90">Visibilité<br/>de marque</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+    <!-- Conclusion -->
+    <section class="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+            <span class="inline-block px-4 py-2 bg-white text-purple-700 rounded-full text-sm font-semibold mb-6">
+                CONCLUSION
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Un Partenariat Réussi</h2>
+            <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                Cette étude de cas démontre l'impact profond qu'une identité de marque bien conçue peut avoir sur le succès d'une entreprise. En combinant recherche approfondie, stratégie réfléchie et exécution créative excellente, nous avons aidé Lumina Wellness à établir une présence de marque forte qui résonne authentiquement avec son public.
+            </p>
+            <div class="bg-white rounded-2xl p-8 shadow-xl mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Leçons Clés</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-900 mb-2">Recherche Approfondie</p>
+                        <p class="text-gray-600 text-sm">Comprendre le marché et le public est essentiel pour créer une identité qui résonne</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-900 mb-2">Cohérence Visuelle</p>
+                        <p class="text-gray-600 text-sm">Chaque point de contact doit renforcer l'identité de marque</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-900 mb-2">Impact Mesurable</p>
+                        <p class="text-gray-600 text-sm">Une bonne marque génère des résultats concrets et durables</p>
+                    </div>
+                </div>
+            </div>
+                               <div>
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M13 7H7a2 2 0 00-2 2v10a4 4 0 004 4h6a4 4 0 004-4V9a2 2 0 00-2-2h-6zM7 7V5a2 2 0 012-2h2a2 2 0 012 2v2" />
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-900 mb-2">Cohérence Visuelle</p>
+                        <p class="text-gray-600 text-sm">Une identité uniforme renforce la crédibilité et la reconnaissance</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8c-1.657 0-3 1.343-3 3v7a3 3 0 006 0v-7c0-1.657-1.343-3-3-3z"/>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-900 mb-2">Expérience Humaine</p>
+                        <p class="text-gray-600 text-sm">Placer les émotions et les besoins du client au centre du design</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#applications"
+               class="inline-block mt-6 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition">
+               Découvrir les Applications
+            </a>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+                    UTILISATIONS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Applications de l’Identité</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Une marque mise en action dans divers supports visuels</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 reveal-on-scroll">
+
+                <!-- Application 1 -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Papeterie & Branding</h3>
+                    <p class="text-gray-600 mb-4">
+                        Cartes de visite, affiches, flyers, documents administratifs cohérents avec l’identité.
+                    </p>
+                    <div class="w-full h-40 bg-white rounded-xl shadow-inner"></div>
+                </div>
+
+                <!-- Application 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Réseaux Sociaux</h3>
+                    <p class="text-gray-600 mb-4">
+                        Templates Instagram, publications harmonisées, univers visuel fort pour la communauté.
+                    </p>
+                    <div class="w-full h-40 bg-white rounded-xl shadow-inner"></div>
+                </div>
+
+                <!-- Application 3 -->
+                <div class="bg-gradient-to-br from-pink-50 to-yellow-50 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Site Web & Interface</h3>
+                    <p class="text-gray-600 mb-4">
+                        Refonte complète UI/UX avec une direction artistique cohérente et immersive.
+                    </p>
+                    <div class="w-full h-40 bg-white rounded-xl shadow-inner"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">Piercel Design</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Création d’identités visuelles uniques et expériences digitales modernes pour marques ambitieuses.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#defi" class="hover:text-white">Le Défi</a></li>
+                    <li><a href="#solution" class="hover:text-white">Solution</a></li>
+                    <li><a href="#resultats" class="hover:text-white">Résultats</a></li>
+                    <li><a href="#applications" class="hover:text-white">Applications</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4">Services</h4>
+                <ul class="space-y-3 text-sm">
+                    <li>Branding</li>
+                    <li>Identité Visuelle</li>
+                    <li>UI/UX Design</li>
+                    <li>Stratégie Digitale</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4">Contact</h4>
+                <p class="text-sm">Envoyer un email :</p>
+                <a href="mailto:contact@pierceldesign.com" class="text-purple-300">contact@pierceldesign.com</a>
+
+                <div class="mt-4 flex space-x-4">
+                    <a class="hover:text-white" href="#">Instagram</a>
+                    <a class="hover:text-white" href="#">Behance</a>
+                    <a class="hover:text-white" href="#">Dribbble</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+            © 2025 Piercel Design · Tous droits réservés
+        </div>
+    </footer>
+
+<script>
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+    function revealOnScroll() {
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('revealed');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>
